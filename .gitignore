@@ -104,3 +104,11 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Unity crash recovery
+/Assets/_Recovery/
+/Assets/_Recovery.meta
+
+# Local editor state
+/UserSettings/
+/.utmp/
