@@ -11,6 +11,7 @@ namespace SurvivalShooter.Enemies
         [SerializeField] protected int maxHealth = 2;
         [SerializeField] protected float moveSpeed = 0.4f;
         [SerializeField] protected int scoreValue = 10;
+        [SerializeField] Material skin;
 
         protected Transform target;
         protected DifficultySettings settings;
@@ -23,6 +24,18 @@ namespace SurvivalShooter.Enemies
         public bool IsAlive => health > 0;
 
         protected float Speed => moveSpeed * settings.enemySpeedMultiplier;
+
+        // FBX models import without their textures, so apply the skin here.
+        protected virtual void Awake()
+        {
+            if (skin == null) return;
+            foreach (var meshRenderer in GetComponentsInChildren<Renderer>())
+            {
+                var materials = meshRenderer.sharedMaterials;
+                for (int i = 0; i < materials.Length; i++) materials[i] = skin;
+                meshRenderer.sharedMaterials = materials;
+            }
+        }
 
         public void Init(Transform player, DifficultySettings difficulty)
         {

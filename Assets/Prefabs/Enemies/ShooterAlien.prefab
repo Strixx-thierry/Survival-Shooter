@@ -72,6 +72,7 @@ MonoBehaviour:
   maxHealth: 5
   moveSpeed: 0.3
   scoreValue: 20
+  skin: {fileID: 2100000, guid: b2d4f6081c3e4a79b8c9d0e1f2a3b4c5, type: 2}
   shootDistance: 1
   damage: 8
   fireCooldown: 2
